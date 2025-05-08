@@ -1,8 +1,4 @@
 @import "tailwindcss";
-
-
-
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -14,7 +10,6 @@ a:hover {
 }
 
 body {
-  @apply font-inter;
   margin: 0;
   display: flex;
   place-items: center;
