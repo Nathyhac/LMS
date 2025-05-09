@@ -1,7 +1,7 @@
 // App.js or Sidebar.js
 import React from 'react';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import { FaAddressBook, FaBuilding, FaChartBar, FaHourglassEnd, FaHeart, FaFileContract, FaCheckCircle, FaHourglassHalf, FaLaptop } from 'react-icons/fa';
+import {FaSignOutAlt, FaAddressBook, FaBuilding, FaChartBar, FaHourglassEnd, FaHeart, FaFileContract, FaCheckCircle, FaHourglassHalf, FaLaptop } from 'react-icons/fa';
 import { MdDashboard, MdCheckCircle } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
 import SidebarLink from './SidebarLink';
@@ -32,6 +32,13 @@ const MySidebar = () => {
               expired
             </MenuItem>
           </SubMenu>
+          <MenuItem
+             icon={<FaSignOutAlt />} // <-- Use a sign out icon from react-icons/fa
+             component={<SidebarLink to="login" />} // <-- Adjust the path or use a click handler
+          >
+            Sign Out
+          </MenuItem>
+
         </Menu>
       </Sidebar>;
       <main style={{ padding: 40, flex: 1 }}>

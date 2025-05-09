@@ -9,10 +9,14 @@ import ExpiredLisenses from './pages/ExpiredLisenses.jsx'
 import Licences from './pages/Licences.jsx'
 import PendingLisence from './pages/PendingLisence.jsx'
 import Product from './pages/Product.jsx'
+import Pagenotfound from './pages/Pagenotfound.jsx'
+import Login from './pages/Login.jsx'
 
 function App() {
   const router = createBrowserRouter(
-    createRoutesFromElements(
+    createRoutesFromElements( 
+      <>
+      <Route path='/login' element={<Login/>}/>
       <Route path='/' element={<RootLayout/>}>
         <Route path='dashboard' element={<Dashboard/>}/>
         <Route path='activelicense'element={<ActiveLicenses/>}/>
@@ -22,6 +26,8 @@ function App() {
         <Route path='pendinglicense' element={<PendingLisence/>}/>
         <Route path='Product' element={<Product/>}/>
       </Route>
+        <Route path='*' element={<Pagenotfound/>}/>
+      </>
     )
   )
 
