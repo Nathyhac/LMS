@@ -4,6 +4,7 @@ import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { FaAddressBook, FaBuilding, FaChartBar, FaHourglassEnd, FaHeart, FaFileContract, FaCheckCircle, FaHourglassHalf, FaLaptop } from 'react-icons/fa';
 import { MdDashboard, MdCheckCircle } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
+import SidebarLink from './SidebarLink';
 
 const MySidebar = () => {
   // const [collapsed, setCollapsed] = React.useState(false);
@@ -17,19 +18,19 @@ const MySidebar = () => {
           Nisr License Manager
         </div>
         <Menu>
-          <NavLink to='dashboard'><MenuItem icon={<FaChartBar />}> Anaytics dashboard </MenuItem></NavLink>
-          <NavLink to='compony'><MenuItem icon={<FaBuilding />}> Companies </MenuItem></NavLink>
-          <NavLink to='product'><MenuItem icon={<FaLaptop />}> Products </MenuItem></NavLink>
+          <MenuItem icon={<FaChartBar />} component={<SidebarLink to='dashboard' />} > Anaytics dashboard </MenuItem>
+          <MenuItem icon={<FaBuilding />} component={<SidebarLink to='compony' />}> Companies </MenuItem>
+          <MenuItem icon={<FaLaptop />} component={<SidebarLink to='Product' />}> Products </MenuItem>
           <SubMenu label="Licenses" icon={<FaFileContract />}>
-            <NavLink to='activelicense'><MenuItem icon={<MdCheckCircle />}>
+            <MenuItem icon={<MdCheckCircle />} component={<SidebarLink to='activelicense' />}>
               Active
-            </MenuItem></NavLink>
-            <NavLink to='pendinglicense'><MenuItem icon={<FaHourglassHalf />}>
+            </MenuItem>
+            <MenuItem icon={<FaHourglassHalf />} component={<SidebarLink to='pendinglicense' />}>
               Pending
-            </MenuItem></NavLink>
-            <NavLink to='expiredlicense'><MenuItem icon={<FaHourglassEnd />}>
+            </MenuItem>
+            <MenuItem icon={<FaHourglassEnd />} component={<SidebarLink to='expiredlicense' />}>
               expired
-            </MenuItem></NavLink>
+            </MenuItem>
           </SubMenu>
         </Menu>
       </Sidebar>;
