@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
-import { FaSignInAlt } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import { FaSignInAlt, FaEyeSlash, FaEye } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { userLogin } from "../Slices/user/user";
 
@@ -9,6 +8,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const { isLoading, token, user } = useSelector((state) => state.user);
@@ -36,62 +36,52 @@ const Login = () => {
 
   return (
     <section className="h-screen w-screen bg-gray-100 flex items-center justify-center">
-      <div className="w-full max-w-md p-6 rounded-lg bg-white shadow-lg text-neutral-800 dark:text-neutral-1000">
+      <div className="max-w-md p-6 rounded-2xl bg-white shadow-lg text-neutral-800 dark:text-neutral-1000">
         <div className="text-center">
-          <Typography variant="h2" className="font-bold mb-4 bg-primary">
-            Sign In
-          </Typography>
-          <Typography
-            variant="paragraph"
-            color="blue-gray"
-            className="text-lg font-normal"
-          >
+          <h2 className="font-bold mb-4 text-2xl bg-primary text-emerald-800">
+            Sign In to Nisir
+          </h2>
+          <h3 className="text-lg font-normal text-emerald-900">
             Enter your email and password to Sign In.
-          </Typography>
+          </h3>
         </div>
 
         <form className="mt-8 w-full mb-2" onSubmit={onFinish}>
-          <div className="mb-1 flex flex-col gap-6 w-full">
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="-mb-3 font-medium"
-            >
-              Your email
-            </Typography>
+          <div className=" flex flex-col gap-4 w-full">
+            <h3 className="font-medium text-emerald-900">Your email:</h3>
             <input
               type="email"
               size="lg"
-              className="mb-4 w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="name@mail.com"
+              className=" w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
 
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="-mb-3 mt-2 font-medium"
-            >
-              Password
-            </Typography>
-            <input
-              className="mb-4 w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              type="password"
-              size="lg"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <div className="relative w-full">
+              <h3 className="font-medium text-emerald-900">Password:</h3>
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="w-full px-4 py-2 mt-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 pr-10"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <div
+                className="absolute inset-y-0 right-3 mt-8 flex items-center cursor-pointer text-gray-500"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </div>
+            </div>
           </div>
           <button
-            className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-150"
-            fullWidth
+            className="flex items-center justify-center gap-2 bg-gray-800 text-white text-xl px-4 mt-6 py-2 w-full rounded-lg hover:bg-blue-800 transition duration-150"
             type="submit"
           >
-            <FaSignInAlt className="text-lg" />
+            <FaSignInAlt className="text-lg " />
             {isLoading ? "Loading..." : "Sign In"}
           </button>
         </form>

@@ -4,18 +4,18 @@ import LowerCard from "../cards/lowerCard";
 import { Select, MenuItem } from "@mui/material";
 import { fetchPoplularity } from "../../Slices/popularity/Thunk";
 
-const LowerStatusChart = () => {
+const PopularityChart = () => {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.popularity);
   useEffect(() => {
     dispatch(fetchPoplularity());
   }, [dispatch]);
-  console.log("data is:", data);
+
   const popularCountData = data.popularCount;
   const popularNamesData = data.popularProductsName;
-  // console.log(popularCountData);
-  // console.log(popularNamesData);
+  // const popularCountData = [4, 1];
+  // const popularNamesData = ["nisr", "siem"];
 
   const statusData = {
     series: popularCountData,
@@ -40,7 +40,7 @@ const LowerStatusChart = () => {
           header={
             <h2 className="font-bold text-xl text-emerald-800 whitespace-nowrap">
               {" "}
-              Popularity( nisr vs siem):
+              Popularity( NISIR vs SIEM):
             </h2>
           }
           selector={
@@ -69,4 +69,4 @@ const LowerStatusChart = () => {
   );
 };
 
-export default LowerStatusChart;
+export default PopularityChart;

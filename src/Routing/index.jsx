@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import AnalyticsLayout from "../Component/AnalyticsLayout.jsx";
+import AnalyticsLayout from "../layouts/AnalyticsLayout.jsx";
 import Login from "../pages/Login.jsx";
 import Company from "../pages/CompanyPage.jsx";
 import Dashboard from "../Component/Dashboard.jsx";

@@ -14,9 +14,8 @@ import {
 import { MdDashboard, MdCheckCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const MySidebar = () => {
+const SideNav = () => {
   const [collapsed, setCollapsed] = React.useState(false);
-  // Remove the <main> section from inside MySidebar
   return (
     <div className="hidden md:block w-[380px]">
       <Sidebar
@@ -95,4 +94,4 @@ const MySidebar = () => {
   );
 };
 
-export default MySidebar;
+export default SideNav;

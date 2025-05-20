@@ -21,7 +21,7 @@ const LowerAnalytics = () => {
     inactiveStateCount,
     pendingStateCount,
   } = useSelector((state) => state.statusChart);
-  //   const chartData = useSelector((state) => state.statusChart);
+
   const barData = useSelector((state) => state.analyticsBar);
 
   useEffect(() => {

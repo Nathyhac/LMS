@@ -10,7 +10,7 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 import { MdMarkUnreadChatAlt, MdMarkChatRead } from "react-icons/md";
-import NavbarLayout from "./navBarLayout";
+import NavLayout from "../layouts/navBarLayout";
 import UserAuth from "../context/AuthContext";
 import { logout } from "../Slices/user/user";
 
@@ -23,6 +23,7 @@ const NavBar = () => {
   const [notifications, setNotifications] = useState([]);
   const [showProfile, setShowProfile] = useState(false);
   const [expandedMessageId, setExpandedMessageId] = useState(null);
+
   useEffect(() => {
     dispatch(fetchNotifications());
   }, [dispatch]);
@@ -64,6 +65,7 @@ const NavBar = () => {
     setExpandedMessageId((prev) => (prev === id ? null : id));
     if (isUnread) handleMarkAsRead(id);
   };
+
   if (!data)
     return (
       <nav className="text-center py-10">
@@ -74,7 +76,7 @@ const NavBar = () => {
     );
 
   return (
-    <NavbarLayout>
+    <NavLayout>
       <nav
         ref={navRef}
         className="flex items-center justify-between h-16 w-full"
@@ -100,7 +102,7 @@ const NavBar = () => {
 
               {showNotifications && (
                 <div className="absolute right-0 mt-2 w-96 bg-gray-50 rounded-sm ring-1 ring-gray-300 ring-opacity-5 z-50">
-                  <div className="py-1 h-max overflow-y-auto p-2">
+                  <div className="py-2 h-max overflow-y-auto p-2">
                     <h2 className="px-4 py-2 text-xl font-bold  text-emerald-800">
                       Notifications
                     </h2>
@@ -121,7 +123,7 @@ const NavBar = () => {
                       notifications.map((notification) => (
                         <div
                           key={notification._id}
-                          className={`px-4 py-3  bg-gray-100 hover:bg-gray-200 cursor-pointer ${
+                          className={`px-4 py-3 bg-gray-100 border-gray-100 hover:bg-gray-200 cursor-pointer ${
                             notification.status === "unread"
                               ? "bg-blue-500"
                               : ""
@@ -199,7 +201,7 @@ const NavBar = () => {
           </div>
         )}
       </nav>
-    </NavbarLayout>
+    </NavLayout>
   );
 };
 
