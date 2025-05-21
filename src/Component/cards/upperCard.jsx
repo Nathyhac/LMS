@@ -9,29 +9,26 @@ const UpperCard = ({
   viewMore,
 }) => {
   return (
-    <div className="bg-gray-50 shadow-sm rounded-lg ">
-      <div className="mb-4 flex items-center justify-center mt-4">
+    <div className="bg-gray-50 items-center justify-center rounded-lg overflow-hidden">
+      <div className="flex py-2 px-2">
         <span className=" bg-white-100 text-yellow-500 md:mx-2">{icon}</span>
-        <h3 className="font-bold border-white-500 pl-2 text-emerald-800">
-          {title}
-        </h3>
+        <h3 className="font-bold border-white-500 text-emerald-800">{title}</h3>
       </div>
-
-      <div className="flex ">
-        <h3 className="text-2xl font-bold mt-16 md:mx-2">{totalCount}</h3>
-        <div className="ml-12 md:ml-4 lg:w-4">
+      <div className="ml-4 flex items-center justify-between">
+        <h1 className="text-3xl font-bold mt-16 md:mx-2">{totalCount}</h1>
+        <div className="mx-4 flex flex-wrap items-center justify-center w-full">
           <Chart
-            className="w-[460px] md:w-[220px] lg:w-[680] xl:w-[380px] md:mr-12"
+            className="w-[680px] md:w-[680px] lg:w-[480px] xl:w-[480px]"
             options={chartOptions}
             series={chartSeries}
             type={chartType}
-            width={"85%"}
-            height={"80%"}
+            width={"75%"}
+            height={"70%"}
           />
         </div>
       </div>
 
-      <div className="mt-4 mx-4 mb-2">
+      <div className="my-4 mx-4 ">
         <span
           onClick={viewMore}
           className="text-cyan-600 cursor-pointer font-semibold hover:underline hover:text-blue-800 transition duration-300 ease-in-out"

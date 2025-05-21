@@ -24,7 +24,7 @@ const popularitySlice = createSlice({
         state.data = action.payload;
         state.popularCount = action.payload.map((item) => item.count);
         state.popularProductsName = action.payload.map(
-          (item) => item.product._id
+          (item) => item.product.name
         );
       })
       .addCase(fetchPoplularity.rejected, (state, action) => {
