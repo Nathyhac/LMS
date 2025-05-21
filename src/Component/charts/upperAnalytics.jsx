@@ -84,7 +84,7 @@ const UpperAnalytics = () => {
 
   return (
     //
-    <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-12">
+    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3  xl:grid-cols-3 gap-12">
       {data.isLoading && (
         <div className="flex justify-center items-center py-10">
           <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500"></div>

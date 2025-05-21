@@ -5,6 +5,7 @@ import statusChartReducer from "../Slices/statusChart/Reducer.js";
 import userReducer from "../Slices/user/user.js";
 import notificationReducer from "../Slices/notifications/Reducer.js";
 import popularityReducer from "../Slices/popularity/Reducer.js";
+import productReducer from "../Slices/product/Reducer.js";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     statusChart: statusChartReducer,
     notifications: notificationReducer,
     popularity: popularityReducer,
+    product: productReducer,
   },
 });

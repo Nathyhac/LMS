@@ -202,7 +202,7 @@ const Login = () => {
                 onBlur={() => handleBlur("password")}
               />
               <div
-                className="absolute inset-y-0 right-3 mt-4 flex items-center cursor-pointer text-gray-500"
+                className="absolute inset-y-0 right-3 mt-8 py-2 flex items-center cursor-pointer text-gray-500"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
