@@ -26,15 +26,16 @@ const PopularityChart = () => {
         style: {
           fontSize: "16px",
           fontFamily: "Inter, sans-serif",
+          text: "white",
           fontWeight: "bold",
-          colors: ["#32CD32", "#8B4000"],
+          colors: ["#000FFF", "#000FFF"],
         },
       },
     },
   };
 
   return (
-    <div className="flex lg:flex-row flex-col gap-12 mt-12 p-2">
+    <div className="">
       <>
         <LowerCard
           header={
@@ -45,12 +46,12 @@ const PopularityChart = () => {
           }
           selector={
             <Select
-              className="sticky ml-4 md:ml-16 lg:ml-32 xl:ml-48"
+              className=""
               // value={selectedProduct}
               // onChange={handleProductChange}
               size="small"
               defaultValue=" "
-              sx={{ minWidth: 100 }}
+              sx={{ minWidth: 80 }}
             >
               <MenuItem value=" ">All</MenuItem>
               <MenuItem value="perDay">Per Day</MenuItem>

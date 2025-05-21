@@ -11,7 +11,6 @@ export default function AnalyticsLayout() {
           <NavBar />
         </div>
         <Outlet />
-        <h1>footer</h1>
       </main>
     </div>
   );

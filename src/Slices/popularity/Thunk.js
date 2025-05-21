@@ -16,10 +16,6 @@ export const fetchPoplularity = createAsyncThunk(
     );
 
     if (response.data.success == true) {
-      console.log(
-        "response of popularity",
-        response.data.data.productPopularityData
-      );
       return response.data.data.productPopularityData;
     }
   }

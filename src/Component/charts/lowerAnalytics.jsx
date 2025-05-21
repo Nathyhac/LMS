@@ -91,6 +91,7 @@ const LowerAnalytics = () => {
       dataLabels: {
         style: {
           fontSize: "16px",
+          text: "blue",
           fontFamily: "Inter, sans-serif",
           fontWeight: "bold",
           colors: ["#32CD32", "#8B4000", "#FF5733"],
@@ -100,7 +101,7 @@ const LowerAnalytics = () => {
   };
 
   return (
-    <div className="flex md:flex lg:flex-row flex-col gap-12 mt-12 p-2">
+    <div className="flex md:flex lg:flex-row flex-col gap-12 mt-12">
       {barData.isLoading && (
         <div className="flex justify-center items-center py-10">
           <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500"></div>
