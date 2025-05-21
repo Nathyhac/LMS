@@ -49,7 +49,7 @@ const MySidebar = () => {
           <Menu>
             <MenuItem
               icon={<FaBuilding className="text-gray-600" />}
-              component={<Link to="/nisir/company-list" />}
+              component={<Link to="/nisir/companies" />}
             >
               <span className="text-emerald-900 font-medium">Companies</span>
             </MenuItem>
@@ -59,22 +59,23 @@ const MySidebar = () => {
             <SubMenu
               icon={<FaAddressBook className="text-gray-600" />}
               label="Licenses"
+              component={<Link to="/nisir/licenses" />}
             >
               <MenuItem
                 icon={<FaCheckCircle className="text-green-500" />}
-                component={<Link to="/users/active" />}
+                component={<Link to="/nisir/activelicenses" />}
               >
                 <span className="text-emerald-900">Active Licenses</span>
               </MenuItem>
               <MenuItem
                 icon={<FaHourglassHalf className="text-yellow-500" />}
-                component={<Link to="/users/pending" />}
+                component={<Link to="/nisir/pendinglicenses" />}
               >
                 <span className="text-emerald-900">Pending Licenses</span>
               </MenuItem>
               <MenuItem
                 icon={<FaHourglassEnd className="text-red-500" />}
-                component={<Link to="/users/expired" />}
+                component={<Link to="/nisir/expiredlicenses" />}
               >
                 <span className="text-emerald-900">Expired Licenses</span>
               </MenuItem>
@@ -84,7 +85,7 @@ const MySidebar = () => {
           <Menu>
             <MenuItem
               icon={<FaBuilding className="text-gray-600" />}
-              component={<Link to="/company-list" />}
+              component={<Link to="/nisir/products" />}
             >
               <span className="text-emerald-900 font-medium">Product</span>
             </MenuItem>
