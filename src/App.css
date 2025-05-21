@@ -1,0 +1,26 @@
+ /* <Card className="mt-12 p-8 ml-4 mr-4">   
+                     <CardHeader
+                      title="Users Analytics over 12 months"
+                        action={(
+                            <Select
+ 
+                       // value={selectedProduct}
+                       // onChange={handleProductChange}
+                             size="small"
+                             defaultValue=''
+                             sx={{ minWidth: 120 }}
+                                          >
+                             <MenuItem value=" ">All</MenuItem>
+                             <MenuItem value="perDay">Per Day</MenuItem>
+                             <MenuItem value="perWeek">Per Week</MenuItem>
+                             <MenuItem value="perMonth">Per Month</MenuItem>
+                             <MenuItem value="perYear">Per Year</MenuItem>
+                          </Select>
+                      )}
+                      />
+                           <Chart 
+                              options={optionsData}
+                              series={seriesData} 
+                               type="bar" 
+                             width={680} />
+                   </Card> */

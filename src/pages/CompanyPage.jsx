@@ -1,19 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCompany } from '../Slices/company/Thunk.js';
 
 function CompanyPage() {
     const dispatch = useDispatch();
     const data = useSelector((state) => state.company);
+
     useEffect(() => {
         dispatch(fetchCompany());
-    }, [])
-    console.log(data.data);
+    }, [dispatch])
+
     if(!data.data) return <h1>
         Loading...
     </h1>
+
     return (
-        <div className="w-full">
+        <div className="w-full h-full">
+            
             {data.isLoading && (
                 <div className="flex justify-center items-center py-10">
                     <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500"></div>
@@ -31,7 +34,8 @@ function CompanyPage() {
             )}
 
             {data.data && data.data.length > 0 && (
-                <div className="overflow-x-auto rounded-lg shadow">
+                <>
+                <div className=" w-full overflow-x-auto rounded-lg shadow">
                     <table className="min-w-full divide-y divide-gray-200">
                         <thead className="bg-gray-50">
                             <tr>
@@ -79,6 +83,7 @@ function CompanyPage() {
                         </tbody>
                     </table>
                 </div>
+                </>
             )}
 
             {data.data && data.data.length === 0 && (
@@ -86,6 +91,7 @@ function CompanyPage() {
                     <p className="text-gray-500">No data available</p>
                 </div>
             )}
+
         </div>
     )
 }
