@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCompany } from '../../Slices/company/Thunk.js';
 import { fetchProduct } from "../../Slices/product/Thunk.js"
-import { createLicence } from "../../Slices/license/Thunk.js"
+import { createLicence, fetchLicence } from "../../Slices/license/Thunk.js"
 import { toast } from 'react-toastify';
 import { useEffect, useState, useRef } from 'react';
 
@@ -24,15 +24,15 @@ const NewLicense = ({ setShowForm }) => {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, [setShowForm]);
 
-    useEffect(() => {
-        dispatch(fetchCompany());
-        dispatch(fetchProduct());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(fetchCompany());
+    //     dispatch(fetchProduct());
+    // }, [dispatch]);
 
 
     useEffect(() => {
-        dispatch(fetchCompany)
-        dispatch(fetchProduct)
+        dispatch(fetchCompany())
+        dispatch(fetchProduct())
     }, [dispatch])
 
     const [formData, setFormData] = useState({
@@ -60,6 +60,7 @@ const NewLicense = ({ setShowForm }) => {
                 toast.success('License created successfully.');
                 setFormData({ productId: '', companyId: '', seats: '', subscriptionType: 'monthly' });
                 setShowForm(false);
+                dispatch(fetchLicence())
             } else {
                 toast.error('An error occurred. Please try again.');
             }
